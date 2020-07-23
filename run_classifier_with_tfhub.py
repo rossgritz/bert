@@ -22,7 +22,7 @@ import os
 import optimization
 import run_classifier
 import tokenization
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import tensorflow_hub as hub
 
 flags = tf.compat.v1.flags
