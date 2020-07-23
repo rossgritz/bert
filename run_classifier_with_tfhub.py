@@ -148,7 +148,7 @@ def create_tokenizer_from_hub_module(bert_hub_module_handle):
   with tf.Graph().as_default():
     bert_module = hub.Module(bert_hub_module_handle)
     tokenization_info = bert_module(signature="tokenization_info", as_dict=True)
-    with tf.Session() as sess:
+    with tf.compat.v1.Session() as sess:
       vocab_file, do_lower_case = sess.run([tokenization_info["vocab_file"],
                                             tokenization_info["do_lower_case"]])
   return tokenization.FullTokenizer(
