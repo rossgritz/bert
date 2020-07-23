@@ -1,4 +1,6 @@
 import run_classifier as rc 
+import os
+import tokenization
 
 class FinancialProc(rc.DataProcessor):
   def get_train_examples(self, data_dir):
@@ -37,5 +39,5 @@ class FinancialProc(rc.DataProcessor):
       #text_b = tokenization.convert_to_unicode(line[9])
       label = tokenization.convert_to_unicode(line[-1])
       examples.append(
-          InputExample(guid=guid, text_a=text_a, label=label))
+          rc.InputExample(guid=guid, text_a=text_a, label=label))
     return examples
